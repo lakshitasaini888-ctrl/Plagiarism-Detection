@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Plagiarism Detector</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <h1>🔍 Plagiarism Checker</h1>
+        <button onclick="toggleTheme()">🌙</button>
+    </div>
+
+    <!-- TEXT INPUT -->
+    <div class="inputs">
+        <textarea id="text1" placeholder="Enter first text OR upload file..."></textarea>
+        <textarea id="text2" placeholder="Enter second text OR upload file..."></textarea>
+    </div>
+
+    <!-- FILE UPLOAD -->
+    <div class="file-section">
+        <div class="file-upload">
+            <label class="file-btn">
+                Upload File 1
+                <input type="file" id="file1" onchange="handleFile(this,'text1')">
+            </label>
+
+            <label class="file-btn">
+                Upload File 2
+                <input type="file" id="file2" onchange="handleFile(this,'text2')">
+            </label>
+        </div>
+
+        <!-- Drag & Drop -->
+        <div class="drop-area" id="drop">
+            Drag & Drop Files Here 📂
+        </div>
+    </div>
+
+    <!-- THRESHOLD -->
+    <div class="controls">
+        <label>Threshold: <span id="value">70</span>%</label>
+        <input type="range" id="threshold" min="0" max="100" value="70"
+        oninput="document.getElementById('value').innerText=this.value">
+    </div>
+
+    <!-- BUTTONS -->
+    <div class="buttons">
+        <button onclick="checkPlagiarism()">Check</button>
+        <button onclick="useBERT()">Advanced (BERT)</button>
+        <button onclick="downloadReport()">Download Report</button>
+        <button onclick="copyResult()">Copy</button>
+    </div>
+
+    <!-- LOADER -->
+    <div id="loader" class="loader hidden"></div>
+
+    <!-- RESULT -->
+    <h2 id="result"></h2>
+
+    <!-- MATCHES -->
+    <div id="matches"></div>
+
+</div>
+
+<!-- TOAST -->
+<div id="toast" class="toast hidden">Copied!</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
