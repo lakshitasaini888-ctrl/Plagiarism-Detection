@@ -110,7 +110,7 @@ python app.py
 
 ## 👩‍💻 Authors
 
-**Lakshita Saini**
+**Lakshita Saini**  And
 **Sapriha**
 
 ---
