@@ -29,3 +29,11 @@ This project is an AI-powered plagiarism detection system that compares large te
 ```bash
 pip install -r requirements.txt
 python app.py
+
+## 🔗 Project Link
+GitHub Repository:  
+https://github.com/your-username/Plagiarism-Detection
+
+## ▶️ Run Locally
+python app.py  
+Open: http://127.0.0.1:10000
