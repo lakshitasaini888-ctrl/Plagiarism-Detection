@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Plagiarism Detector</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>⚡ AI Plagiarism Detector</h1>
+    <p class="subtitle">Compare Files or Paste Text Instantly</p>
+
+    <!-- ================= FILE SECTION ================= -->
+    <div class="card">
+
+        <h2>📄 File Comparison</h2>
+
+        <form action="/analyze" method="POST" enctype="multipart/form-data">
+
+            <input type="file" name="file1" required>
+            <input type="file" name="file2" required>
+
+            <button type="submit">Check File Plagiarism</button>
+
+        </form>
+
+    </div>
+
+    <!-- ================= TEXT SECTION ================= -->
+    <div class="card">
+
+        <h2>✍️ Text Comparison</h2>
+
+        <form action="/text-analyze" method="POST">
+
+            <textarea name="text1" placeholder="Paste First Text" required></textarea>
+
+            <textarea name="text2" placeholder="Paste Second Text" required></textarea>
+
+            <button type="submit">Compare Texts</button>
+
+        </form>
+
+    </div>
+
+</div>
+
+</body>
+</html>

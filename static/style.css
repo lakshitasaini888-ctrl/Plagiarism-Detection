@@ -1,0 +1,114 @@
+
+/* ================= BACKGROUND ================= */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #ff6a00, #ee0979, #00c6ff);
+    background-size: 400% 400%;
+    animation: gradientBG 10s ease infinite;
+    color: white;
+}
+
+/* Animated background */
+@keyframes gradientBG {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+}
+
+/* ================= CONTAINER ================= */
+.container {
+    width: 80%;
+    margin: auto;
+    padding: 40px;
+    text-align: center;
+}
+
+/* ================= TITLE ================= */
+h1 {
+    font-size: 42px;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    font-size: 18px;
+    margin-bottom: 30px;
+    opacity: 0.9;
+}
+
+/* ================= CARD BOX ================= */
+.card {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px);
+    padding: 25px;
+    margin: 25px 0;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 12px 35px rgba(0,0,0,0.5);
+}
+
+/* ================= INPUT FILE ================= */
+input[type="file"] {
+    margin: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    background: white;
+    color: black;
+}
+
+/* ================= TEXTAREA ================= */
+textarea {
+    width: 90%;
+    height: 120px;
+    margin-top: 10px;
+    padding: 12px;
+    border-radius: 12px;
+    border: none;
+    outline: none;
+    font-size: 14px;
+}
+
+/* ================= BUTTON ================= */
+button {
+    margin-top: 15px;
+    padding: 12px 25px;
+    background: linear-gradient(90deg, #00ff87, #60efff);
+    color: black;
+    font-weight: bold;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 15px;
+}
+
+/* Hover effect */
+button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px #00ffcc;
+}
+
+/* ================= HEADINGS ================= */
+h2 {
+    color: #fff;
+    margin-bottom: 15px;
+}
+
+/* ================= RESULT IMAGE ================= */
+img {
+    margin-top: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+/* ================= TEXT ================= */
+p {
+    font-size: 14px;
+}

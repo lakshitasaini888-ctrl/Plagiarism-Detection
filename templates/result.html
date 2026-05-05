@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Plagiarism Dashboard</title>
+    <link rel="stylesheet" href="/static/style.css">
+
+    <style>
+        body {
+            background: #0f172a;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            width: 90%;
+            margin: auto;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #00ffcc;
+        }
+
+        .card {
+            background: #1e293b;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 12px;
+            box-shadow: 0 0 10px rgba(0,255,204,0.2);
+        }
+
+        .charts {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        img {
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.5);
+        }
+
+        .match-box {
+            border-left: 5px solid red;
+            background: #111827;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 8px;
+        }
+
+        .download-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #00ffcc;
+            color: black;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+
+        .download-btn:hover {
+            background: #00ccaa;
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin-top: 20px;
+            color: #00ffcc;
+            text-decoration: none;
+        }
+    </style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>📊 AI Plagiarism Analytics Dashboard</h1>
+
+    <!-- ================= SUMMARY ================= -->
+    <div class="card">
+        <h2>📌 Summary</h2>
+
+        <p><b>Plagiarism Score:</b> {{ result.score }}%</p>
+        <p><b>Matched Sections:</b> {{ result.matches|length }}</p>
+
+        <p><b>Status:</b>
+            {% if result.score > 70 %}
+                🔴 High Plagiarism
+            {% elif result.score > 40 %}
+                🟠 Moderate Plagiarism
+            {% else %}
+                🟢 Low Plagiarism
+            {% endif %}
+        </p>
+    </div>
+
+    <!-- ================= CHARTS ================= -->
+    <div class="card">
+        <h2>📈 Visual Analysis</h2>
+
+        <div class="charts">
+            <img src="/reports/pie.png" width="300">
+            <img src="/reports/bar.png" width="300">
+        </div>
+    </div>
+
+    <!-- ================= DOWNLOAD ================= -->
+    <div class="card">
+        <h2>📄 Report</h2>
+        <a href="/reports/report.pdf" target="_blank" class="download-btn">
+            Download Full Report
+        </a>
+    </div>
+
+    <!-- ================= MATCHED CONTENT ================= -->
+    <div class="card">
+        <h2>🔍 Top Similar Sections</h2>
+
+        {% if result.matches %}
+            {% for match in result.matches %}
+                <div class="match-box">
+
+                    <p><b>Text 1:</b><br>
+                        {{ match.text1 }}
+                    </p>
+
+                    <p><b>Text 2:</b><br>
+                        {{ match.text2 }}
+                    </p>
+
+                    <p><b>Similarity:</b> {{ match.score }}</p>
+
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>No strong matches found.</p>
+        {% endif %}
+    </div>
+
+    <a href="/" class="back-btn">⬅ Back to Home</a>
+
+</div>
+
+</body>
+</html>
